@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeFi Researcher Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<style>
+    * {
+        font-family: 'Poppins', sans-serif;
+    }
+    .neomorphic {
+        background: #f0f4f8;
+        border-radius: 20px;
+        box-shadow: 10px 10px 20px #d0d9e0,
+                   -10px -10px 20px #ffffff;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+    .neomorphic-sm {
+        background: #f0f4f8;
+        border-radius: 15px;
+        box-shadow: 5px 5px 10px #d0d9e0,
+                   -5px -5px 10px #ffffff;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+    .neomorphic-inset {
+        background: #f0f4f8;
+        border-radius: 15px;
+        box-shadow: inset 5px 5px 10px #d0d9e0,
+                    inset -5px -5px 10px #ffffff;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+    .chat-container {
+        height: calc(100vh - 180px);
+    }
+    .swiper-slide {
+        height: auto !important;
+    }
+    .neomorphic-btn {
+        background: #f0f4f8;
+        border-radius: 10px;
+        box-shadow: 5px 5px 10px #d0d9e0,
+                   -5px -5px 10px #ffffff;
+        transition: all 0.3s ease;
+    }
+    .neomorphic-btn:active {
+        box-shadow: inset 3px 3px 6px #d0d9e0,
+                    inset -3px -3px 6px #ffffff;
+    }
+    .skill-bar {
+        background: #f0f4f8;
+        border-radius: 10px;
+        box-shadow: inset 3px 3px 6px #d0d9e0,
+                    inset -3px -3px 6px #ffffff;
+        height: 20px;
+        width: 100%;
+    }
+    .skill-progress {
+        height: 100%;
+        border-radius: 10px;
+        background: linear-gradient(to right, #3b82f6, #60a5fa);
+    }
+    .nav-active {
+        box-shadow: inset 3px 3px 6px #d0d9e0,
+                    inset -3px -3px 6px #ffffff;
+        color: #3b82f6;
+    }
+    body {
+        background-color: #f0f4f8;
+    }
+</style>
+<body>
+    <!-- Fixed Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-[#f0f4f8] z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between py-4">
+                <a href="#" class="text-2xl font-bold text-blue-600">DeFi<span class="text-gray-800">Portfolio</span></a>
+                <div class="hidden md:flex space-x-4">
+                    <a href="#home" class="neomorphic-btn px-4 py-2 nav-active">Home</a>
+                    <a href="#about" class="neomorphic-btn px-4 py-2">About Me</a>
+                    <a href="#services" class="neomorphic-btn px-4 py-2">Services</a>
+                    <a href="#articles" class="neomorphic-btn px-4 py-2">Articles</a>
+                    <a href="#skills" class="neomorphic-btn px-4 py-2">Skills</a>
+                    <a href="#contact" class="neomorphic-btn px-4 py-2">Contact</a>
+                </div>
+                <button class="md:hidden neomorphic-btn px-3 py-2" id="menu-toggle">
+                    <i class="bi bi-list text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden px-4 pb-4 md:hidden">
+            <a href="#home" class="neomorphic-sm block px-4 py-2 my-2">Home</a>
+            <a href="#about" class="neomorphic-sm block px-4 py-2 my-2">About Me</a>
+            <a href="#services" class="neomorphic-sm block px-4 py-2 my-2">Services</a>
+            <a href="#articles" class="neomorphic-sm block px-4 py-2 my-2">Articles</a>
+            <a href="#skills" class="neomorphic-sm block px-4 py-2 my-2">Skills</a>
+            <a href="#contact" class="neomorphic-sm block px-4 py-2 my-2">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Content Container -->
+    <main class="mt-20">
+        <!-- Hero Section -->
+        <section id="home" class="min-h-[80vh] flex items-center px-4 py-16">
+            <div class="container mx-auto">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <div class="neomorphic p-8 md:p-12">
+                            <h1 class="text-4xl md:text-5xl font-bold mb-6 text-gray-800">DeFi Researcher & Business Development</h1>
+                            <h2 class="text-2xl text-blue-600 font-semibold mb-6">Web3/Blockchain Expert</h2>
+                            <p class="text-gray-600 mb-8">Analyzing the decentralized finance landscape and developing meaningful business connections in the blockchain space.</p>
+                            <div class="flex space-x-4">
+                                <a href="#contact" class="neomorphic-btn px-8 py-3 text-blue-600 font-semibold hover:text-blue-700 transition">Contact Me</a>
+                                <a href="#services" class="neomorphic-btn px-8 py-3 text-gray-700 font-semibold hover:text-gray-800 transition">My Services</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-center">
+                        <div class="neomorphic h-[400px] w-[400px] rounded-full overflow-hidden flex items-center justify-center">
+                            <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="DeFi Researcher" class="object-cover h-full w-full">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-16 px-4">
+            <div class="container mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Who Am I?</h2>
+                <div class="neomorphic p-8 md:p-12">
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div class="order-2 md:order-1">
+                            <h3 class="text-2xl font-semibold mb-4 text-blue-600">DeFi & Blockchain Expert</h3>
+                            <p class="text-gray-600 mb-4">I'm a DeFi Researcher and Business Development Manager with extensive experience in the Web3 and blockchain ecosystem. My expertise lies in analyzing decentralized protocols, identifying market trends, and creating strategic partnerships.</p>
+                            <p class="text-gray-600 mb-4">With a background in finance and technology, I help businesses navigate the complex landscape of decentralized finance, tokenomics, and blockchain implementation.</p>
+                            <p class="text-gray-600">My mission is to bridge the gap between traditional finance and the innovative world of DeFi, making blockchain technology more accessible and beneficial for all.</p>
+                        </div>
+                        <div class="order-1 md:order-2 flex justify-center">
+                            <div class="neomorphic h-[300px] w-[300px] overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1642790551116-18e150f2a9df?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="DeFi Research" class="object-cover h-full w-full">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-16 px-4 bg-[#f0f4f8]">
+            <div class="container mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">What I Do?</h2>
+                <div class="neomorphic p-8 md:p-12">
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div class="flex justify-center">
+                            <div class="neomorphic h-[300px] w-[300px] overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1621761191319-c6fb62004040?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Blockchain Services" class="object-cover h-full w-full">
+                            </div>
+                        </div>
+                        <div>
+                            <div class="grid grid-cols-1 gap-6">
+                                <div class="neomorphic-sm p-6">
+                                    <h3 class="text-xl font-semibold text-blue-600 mb-3">DeFi Market Research</h3>
+                                    <p class="text-gray-600">In-depth analysis of DeFi protocols, market trends, and investment opportunities in the decentralized finance ecosystem.</p>
+                                </div>
+                                <div class="neomorphic-sm p-6">
+                                    <h3 class="text-xl font-semibold text-blue-600 mb-3">Business Development</h3>
+                                    <p class="text-gray-600">Strategic partnership development and network expansion for blockchain projects and DeFi platforms.</p>
+                                </div>
+                                <div class="neomorphic-sm p-6">
+                                    <h3 class="text-xl font-semibold text-blue-600 mb-3">Tokenomics Consulting</h3>
+                                    <p class="text-gray-600">Design and optimization of token economic models for sustainable blockchain projects and crypto ventures.</p>
+                                </div>
+                                <div class="neomorphic-sm p-6">
+                                    <h3 class="text-xl font-semibold text-blue-600 mb-3">Web3 Education</h3>
+                                    <p class="text-gray-600">Educational content creation and workshop facilitation to help teams and investors understand the Web3 landscape.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Articles Section -->
+        <section id="articles" class="py-16 px-4">
+            <div class="container mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">My Articles</h2>
+                <div class="neomorphic p-8 md:p-12">
+                    <div class="swiper mySwiper">
+                        <div class="swiper-wrapper pb-12">
+                            <!-- Article 1 -->
+                            <div class="swiper-slide px-4">
+                                <div class="neomorphic-sm p-6 h-full flex flex-col">
+                                    <div class="mb-4 neomorphic-inset p-2">
+                                        <img src="https://images.unsplash.com/photo-1622630998477-20aa696ecb05?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="DeFi Article" class="w-full h-48 object-cover rounded-lg">
+                                    </div>
+                                    <h3 class="text-xl font-semibold text-blue-600 mb-2">The Future of DeFi Lending</h3>
+                                    <p class="text-gray-600 mb-4 flex-grow">Exploring how decentralized lending protocols are reshaping the financial landscape and creating new opportunities for borrowers and lenders.</p>
+                                    <a href="#" class="neomorphic-btn inline-block px-4 py-2 text-blue-600">Read More</a>
+                                </div>
+                            </div>
+                            <!-- Article 2 -->
+                            <div class="swiper-slide px-4">
+                                <div class="neomorphic-sm p-6 h-full flex flex-col">
+                                    <div class="mb-4 neomorphic-inset p-2">
+                                        <img src="https://images.unsplash.com/photo-1629090192587-865d30267ad6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="NFT Article" class="w-full h-48 object-cover rounded-lg">
+                                    </div>
+                                    <h3 class="text-xl font-semibold text-blue-600 mb-2">NFTs and Digital Ownership</h3>
+                                    <p class="text-gray-600 mb-4 flex-grow">Analyzing the impact of non-fungible tokens on digital ownership rights and the future of digital collectibles.</p>
+                                    <a href="#" class="neomorphic-btn inline-block px-4 py-2 text-blue-600">Read More</a>
+                                </div>
+                            </div>
+                            <!-- Article 3 -->
+                            <div class="swiper-slide px-4">
+                                <div class="neomorphic-sm p-6 h-full flex flex-col">
+                                    <div class="mb-4 neomorphic-inset p-2">
+                                        <img src="https://images.unsplash.com/photo-1634704784915-aacf363b021f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="DAO Article" class="w-full h-48 object-cover rounded-lg">
+                                    </div>
+                                    <h3 class="text-xl font-semibold text-blue-600 mb-2">The Rise of DAOs</h3>
+                                    <p class="text-gray-600 mb-4 flex-grow">How Decentralized Autonomous Organizations are redefining corporate governance and community-led initiatives in the Web3 era.</p>
+                                    <a href="#" class="neomorphic-btn inline-block px-4 py-2 text-blue-600">Read More</a>
+                                </div>
+                            </div>
+                            <!-- Article 4 -->
+                            <div class="swiper-slide px-4">
+                                <div class="neomorphic-sm p-6 h-full flex flex-col">
+                                    <div class="mb-4 neomorphic-inset p-2">
+                                        <img src="https://images.unsplash.com/photo-1646667061188-eec47201df53?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Tokenomics Article" class="w-full h-48 object-cover rounded-lg">
+                                    </div>
+                                    <h3 class="text-xl font-semibold text-blue-600 mb-2">Sustainable Tokenomics Models</h3>
+                                    <p class="text-gray-600 mb-4 flex-grow">Critical analysis of various token economic models and strategies for creating sustainable blockchain projects.</p>
+                                    <a href="#" class="neomorphic-btn inline-block px-4 py-2 text-blue-600">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-16 px-4">
+            <div class="container mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">My Skills</h2>
+                <div class="neomorphic p-8 md:p-12">
+                    <div class="grid md:grid-cols-2 gap-12">
+                        <div>
+                            <canvas id="skillsChart" width="400" height="400"></canvas>
+                        </div>
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-medium text-gray-700">DeFi Research</span>
+                                    <span class="font-medium text-blue-600">9/10</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-medium text-gray-700">Business Development</span>
+                                    <span class="font-medium text-blue-600">8.5/10</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-medium text-gray-700">Tokenomics</span>
+                                    <span class="font-medium text-blue-600">8/10</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-medium text-gray-700">Smart Contract Analysis</span>
+                                    <span class="font-medium text-blue-600">7/10</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 70%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-medium text-gray-700">Market Analysis</span>
+                                    <span class="font-medium text-blue-600">9/10</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-medium text-gray-700">Technical Writing</span>
+                                    <span class="font-medium text-blue-600">8.5/10</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 85%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 px-4 bg-[#f0f4f8]">
+            <div class="container mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Connect With Me</h2>
+                <div class="neomorphic p-8 md:p-12">
+                    <div class="flex justify-center mb-10">
+                        <div class="flex space-x-6">
+                            <a href="#" class="neomorphic-btn h-14 w-14 flex items-center justify-center text-blue-600 hover:text-blue-700">
+                                <i class="bi bi-twitter text-2xl"></i>
+                            </a>
+                            <a href="#" class="neomorphic-btn h-14 w-14 flex items-center justify-center text-blue-600 hover:text-blue-700">
+                                <i class="bi bi-linkedin text-2xl"></i>
+                            </a>
+                            <a href="#" class="neomorphic-btn h-14 w-14 flex items-center justify-center text-blue-600 hover:text-blue-700">
+                                <i class="bi bi-github text-2xl"></i>
+                            </a>
+                            <a href="#" class="neomorphic-btn h-14 w-14 flex items-center justify-center text-blue-600 hover:text-blue-700">
+                                <i class="bi bi-medium text-2xl"></i>
+                            </a>
+                            <a href="#" class="neomorphic-btn h-14 w-14 flex items-center justify-center text-blue-600 hover:text-blue-700">
+                                <i class="bi bi-telegram text-2xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-10">
+                        <div class="neomorphic-sm p-6">
+                            <h3 class="text-xl font-semibold mb-4 text-blue-600">Contact Information</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center space-x-3">
+                                    <i class="bi bi-envelope text-blue-600"></i>
+                                    <span class="text-gray-700">contact@defiresearcher.com</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <i class="bi bi-geo-alt text-blue-600"></i>
+                                    <span class="text-gray-700">Global - Remote Available</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <i class="bi bi-calendar-check text-blue-600"></i>
+                                    <span class="text-gray-700">Available for consulting and partnership</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="neomorphic-sm p-6">
+                            <h3 class="text-xl font-semibold mb-4 text-blue-600">Send Me a Message</h3>
+                            <form class="space-y-4">
+                                <div>
+                                    <input type="text" placeholder="Your Name" class="w-full p-3 neomorphic-inset focus:outline-none focus:ring-2 focus:ring-blue-500 bg-[#f0f4f8]">
+                                </div>
+                                <div>
+                                    <input type="email" placeholder="Your Email" class="w-full p-3 neomorphic-inset focus:outline-none focus:ring-2 focus:ring-blue-500 bg-[#f0f4f8]">
+                                </div>
+                                <div>
+                                    <textarea placeholder="Your Message" rows="4" class="w-full p-3 neomorphic-inset focus:outline-none focus:ring-2 focus:ring-blue-500 bg-[#f0f4f8]"></textarea>
+                                </div>
+                                <button type="submit" class="neomorphic-btn px-6 py-3 text-blue-600 font-semibold hover:text-blue-700 transition">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FinanceGPT Chat Button Floating -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <button id="chatToggle" class="neomorphic h-16 w-16 rounded-full flex items-center justify-center bg-blue-600 text-white hover:bg-blue-700 transition">
+            <i class="bi bi-chat-dots text-2xl"></i>
+        </button>
+    </div>
+
+    <!-- FinanceGPT App (Hidden by default) -->
+    <div id="financeApp" class="fixed inset-0 z-[100] bg-black bg-opacity-50 hidden flex items-center justify-center p-4">
+        <div class="neomorphic w-full max-w-4xl h-[90vh] flex flex-col bg-[#f0f4f8]">
+            <!-- Login Page -->
+            <div id="loginPage" class="flex flex-col h-full">
+                <div class="p-4 border-b flex justify-between items-center">
+                    <h2 class="text-2xl font-bold text-blue-600">FinanceGPT</h2>
+                    <button id="closeFinanceApp" class="neomorphic-btn w-8 h-8 flex items-center justify-center">
+                        <i class="bi bi-x-lg"></i>
+                    </button>
+                </div>
+                <div class="flex-grow flex items-center justify-center p-4">
+                    <div class="neomorphic p-8 w-full max-w-md">
+                        <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">FinanceGPT</h2>
+                        <form id="loginForm" class="space-y-6">
+                            <div>
+                                <input type="email" id="email" placeholder="Email" class="w-full p-4 rounded-3xl neomorphic-inset border-none focus:ring-2 focus:ring-blue-500 bg-[#f0f4f8]">
+                            </div>
+                            <div>
+                                <input type="password" id="password" placeholder="Password" class="w-full p-4 rounded-3xl neomorphic-inset border-none focus:ring-2 focus:ring-blue-500 bg-[#f0f4f8]">
+                            </div>
+                            <button type="submit" class="w-full p-4 rounded-3xl neomorphic-btn bg-blue-500 text-white font-semibold hover:bg-blue-600 transition duration-300">Login</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mode Selection -->
+            <div id="modeSelection" class="hidden flex flex-col h-full">
+                <div class="p-4 border-b flex justify-between items-center">
+                    <h2 class="text-2xl font-bold text-blue-600">FinanceGPT</h2>
+                    <button id="closeFinanceApp2" class="neomorphic-btn w-8 h-8 flex items-center justify-center">
+                        <i class="bi bi-x-lg"></i>
+                    </button>
+                </div>
+                <div class="flex-grow p-4 overflow-y-auto">
+                    <div class="neomorphic p-8">
+                        <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">Select Mode</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <button class="neomorphic-sm p-6 text-left hover:scale-105 transition duration-300" onclick="selectMode('financial-research')">
+                                <i class="bi bi-graph-up text-3xl mb-2 text-blue-500"></i>
+                                <h3 class="text-xl font-semibold">Financial Research</h3>
+                                <p class="text-gray-600">Deep dive into market analysis and research</p>
+                            </button>
+                            <button class="neomorphic-sm p-6 text-left hover:scale-105 transition duration-300" onclick="selectMode('personal-finance')">
+                                <i class="bi bi-wallet2 text-3xl mb-2 text-green-500"></i>
+                                <h3 class="text-xl font-semibold">Personal Finance</h3>
+                                <p class="text-gray-600">Manage your personal finances effectively</p>
+                            </button>
+                            <button class="neomorphic-sm p-6 text-left hover:scale-105 transition duration-300" onclick="selectMode('investment')">
+                                <i class="bi bi-cash-coin text-3xl mb-2 text-yellow-500"></i>
+                                <h3 class="text-xl font-semibold">Investment</h3>
+                                <p class="text-gray-600">Investment strategies and portfolio management</p>
+                            </button>
+                            <button class="neomorphic-sm p-6 text-left hover:scale-105 transition duration-300" onclick="selectMode('expense-control')">
+                                <i class="bi bi-calculator text-3xl mb-2 text-red-500"></i>
+                                <h3 class="text-xl font-semibold">Expense Control</h3>
+                                <p class="text-gray-600">Track and optimize your expenses</p>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat Interface -->
+            <div id="chatInterface" class="hidden flex flex-col h-full">
+                <div class="p-4 border-b flex justify-between items-center">
+                    <button onclick="showModeSelection()" class="neomorphic-btn p-2 px-4">
+                        <i class="bi bi-arrow-left"></i> Back
+                    </button>
+                    <h2 id="currentMode" class="text-2xl font-bold text-gray-800">Mode</h2>
+                    <button id="closeFinanceApp3" class="neomorphic-btn w-8 h-8 flex items-center justify-center">
+                        <i class="bi bi-x-lg"></i>
+                    </button>
+                </div>
+                <div class="flex-grow overflow-y-auto p-4">
+                    <div class="neomorphic-sm p-6 h-full">
+                        <div id="chatMessages" class="space-y-4"></div>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <form id="chatForm" class="flex gap-4">
+                        <input type="text" id="userInput" placeholder="Type your message here..." class="flex-1 p-4 rounded-3xl neomorphic-inset border-none focus:ring-2 focus:ring-blue-500 bg-[#f0f4f8]">
+                        <button type="submit" class="neomorphic-btn p-4 px-8 bg-blue-500 text-white rounded-3xl hover:bg-blue-600 transition duration-300">
+                            <i class="bi bi-send"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="py-8 px-4 text-center text-gray-600 bg-[#f0f4f8]">
+        <div class="container mx-auto">
+            <p>&copy; 2023 DeFi Researcher. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Initialize Swiper
+        const swiper = new Swiper(".mySwiper", {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 3,
+                },
+            },
+        });
+
+        // Skills Chart
+        const ctx = document.getElementById('skillsChart').getContext('2d');
+        const skillsChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['DeFi Research', 'Business Development', 'Tokenomics', 'Smart Contract Analysis', 'Market Analysis', 'Technical Writing'],
+                datasets: [{
+                    label: 'Skill Level (out of 10)',
+                    data: [9, 8.5, 8, 7, 9, 8.5],
+                    backgroundColor: [
+                        'rgba(59, 130, 246, 0.7)',
+                        'rgba(59, 130, 246, 0.7)',
+                        'rgba(59, 130, 246, 0.7)',
+                        'rgba(59, 130, 246, 0.7)',
+                        'rgba(59, 130, 246, 0.7)',
+                        'rgba(59, 130, 246, 0.7)',
+                    ],
+                    borderColor: [
+                        'rgba(59, 130, 246, 1)',
+                        'rgba(59, 130, 246, 1)',
+                        'rgba(59, 130, 246, 1)',
+                        'rgba(59, 130, 246, 1)',
+                        'rgba(59, 130, 246, 1)',
+                        'rgba(59, 130, 246, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 10
+                    }
+                }
+            }
+        });
+
+        // Navigation active state
+        const navLinks = document.querySelectorAll('nav a');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            document.querySelectorAll('section').forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('nav-active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('nav-active');
+                }
+            });
+        });
+
+        // FinanceGPT App Toggle
+        const chatToggle = document.getElementById('chatToggle');
+        const financeApp = document.getElementById('financeApp');
+        const closeFinanceApp = document.getElementById('closeFinanceApp');
+        const closeFinanceApp2 = document.getElementById('closeFinanceApp2');
+        const closeFinanceApp3 = document.getElementById('closeFinanceApp3');
+        
+        chatToggle.addEventListener('click', () => {
+            financeApp.classList.remove('hidden');
+        });
+        
+        closeFinanceApp.addEventListener('click', () => {
+            financeApp.classList.add('hidden');
+        });
+        
+        closeFinanceApp2.addEventListener('click', () => {
+            financeApp.classList.add('hidden');
+        });
+        
+        closeFinanceApp3.addEventListener('click', () => {
+            financeApp.classList.add('hidden');
+        });
+
+        // FinanceGPT App Functionality
+        const loginPageEl = document.getElementById('loginPage');
+        const modeSelectionEl = document.getElementById('modeSelection');
+        const chatInterfaceEl = document.getElementById('chatInterface');
+        const currentModeEl = document.getElementById('currentMode');
+        const chatMessagesEl = document.getElementById('chatMessages');
+        const chatFormEl = document.getElementById('chatForm');
+        const loginFormEl = document.getElementById('loginForm');
+
+        // Login Handler
+        loginFormEl.addEventListener('submit', (e) => {
+            e.preventDefault();
+            loginPageEl.classList.add('hidden');
+            modeSelectionEl.classList.remove('hidden');
+        });
+
+        // Mode Selection Handler
+        function selectMode(mode) {
+            modeSelectionEl.classList.add('hidden');
+            chatInterfaceEl.classList.remove('hidden');
+            currentModeEl.textContent = mode.split('-').map(word => 
+                word.charAt(0).toUpperCase() + word.slice(1)
+            ).join(' ');
+            addMessage('system', `Welcome to ${currentModeEl.textContent} mode! How can I help you today?`);
+        }
+
+        // Back to Mode Selection
+        function showModeSelection() {
+            chatInterfaceEl.classList.add('hidden');
+            modeSelectionEl.classList.remove('hidden');
+            chatMessagesEl.innerHTML = '';
+        }
+
+        // Chat Functionality
+        chatFormEl.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const input = document.getElementById('userInput');
+            const message = input.value.trim();
+            
+            if (message) {
+                addMessage('user', message);
+                // Simulate AI response
+                setTimeout(() => {
+                    let response;
+                    const mode = currentModeEl.textContent.toLowerCase();
+                    
+                    if (mode.includes('financial research')) {
+                        response = "I've analyzed the latest DeFi market trends, and based on your query about " + message + ", I've found some interesting research papers and market insights. Would you like me to provide a summary or focus on specific aspects?";
+                    } else if (mode.includes('personal finance')) {
+                        response = "Based on your question about " + message + ", here are some personal finance strategies that might help optimize your financial health and achieve your goals.";
+                    } else if (mode.includes('investment')) {
+                        response = "Regarding your investment inquiry about " + message + ", I can provide some data-driven insights and potential strategies, though remember this isn't financial advice.";
+                    } else if (mode.includes('expense control')) {
+                        response = "I've analyzed your expense query about " + message + " and can suggest some efficient tracking and optimization methods to help you manage your spending better.";
+                    } else {
+                        response = "I'm processing your request about: \"" + message + "\". How else can I assist you with this?";
+                    }
+                    
+                    addMessage('system', response);
+                }, 1000);
+                input.value = '';
+            }
+        });
+
+        function addMessage(type, content) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `flex ${type === 'user' ? 'justify-end' : 'justify-start'} mb-4`;
+            
+            const messageBubble = document.createElement('div');
+            messageBubble.className = `neomorphic-sm p-4 max-w-[80%] ${type === 'user' ? 'bg-blue-500 text-white' : 'bg-white text-gray-700'} rounded-3xl`;
+            messageBubble.textContent = content;
+            
+            messageDiv.appendChild(messageBubble);
+            chatMessagesEl.appendChild(messageDiv);
+            
+            // Auto scroll to bottom
+            const chatContainer = chatMessagesEl.parentElement;
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+    </script>
+<script>document.body.addEventListener('wheel', e => { if (!e.ctrlKey) return; e.preventDefault(); return }, { passive: false })</script>
+	</body>
+</html>
